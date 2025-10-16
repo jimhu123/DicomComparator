@@ -198,6 +198,14 @@ sub compare_dicomfolderpair
 	return $diffResultTotal;
 }
 
+if(scalar @ARGV < 2)
+{	
+	print(qq(Usage:
+	perl DicomComparator.pl 1stDicomFileOrFolderPath 2stDicomFileOrFolderPath DicomDiffFilePath IgnorePrivateTag
+	or 
+	DicomComparator.exe 1stDicomFileOrFolderPath 2stDicomFileOrFolderPath DicomDiffFilePath IgnorePrivateTag));
+	exit;
+}
 my ($dcmFileOrFolder1, $dcmFileOrFolder2, $diffFile, $ignorePrivateTag) = @ARGV;
 
 $dcmFileOrFolder1 =~ s/\\/\//g;
